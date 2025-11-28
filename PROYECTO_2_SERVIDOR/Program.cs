@@ -13,7 +13,7 @@ namespace PROYECTO_2_SERVIDOR
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Presentacion.Principal());
+            Application.Run(new Presentacion.FRM_MAIN());
         }
     }
 }

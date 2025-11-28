@@ -85,7 +85,7 @@
             this.lblClientes.AutoSize = true;
             this.lblClientes.Location = new System.Drawing.Point(13, 29);
             this.lblClientes.Name = "lblClientes";
-            this.lblClientes.Size = new System.Drawing.Size(125, 13);
+            this.lblClientes.Size = new System.Drawing.Size(115, 13);
             this.lblClientes.TabIndex = 0;
             this.lblClientes.Text = "Clientes conectados: 0";
             // 
@@ -96,6 +96,7 @@
             this.ClientSize = new System.Drawing.Size(584, 361);
             this.Controls.Add(this.gbSocket);
             this.Name = "Principal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SERVIDOR PADRÓN - PRINCIPAL";
             this.Load += new System.EventHandler(this.Principal_Load);
             this.gbSocket.ResumeLayout(false);
