@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logica\Cla_Servidor.cs" />
+    <Compile Include="Logica\CL_SERVIDOR.cs" />
     <Compile Include="Presentacion\FRM_MAIN.cs">
       <SubType>Form</SubType>
     </Compile>
