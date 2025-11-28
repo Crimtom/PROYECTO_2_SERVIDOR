@@ -53,6 +53,7 @@
             this.BT_MANTEN_PADRON.TabIndex = 1;
             this.BT_MANTEN_PADRON.Text = "Mantenimiento de Padrón";
             this.BT_MANTEN_PADRON.UseVisualStyleBackColor = true;
+            this.BT_MANTEN_PADRON.Click += new System.EventHandler(this.BT_MANTEN_PADRON_Click);
             // 
             // BT_SOCKET_COM
             // 

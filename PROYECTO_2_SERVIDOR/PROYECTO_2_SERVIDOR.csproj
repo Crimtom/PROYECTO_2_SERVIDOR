@@ -47,12 +47,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logica\Cla_Servidor.cs" />
-    <Compile Include="Logica\CL_SERVIDOR.cs" />
     <Compile Include="Presentacion\FRM_MAIN.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\FRM_MAIN.Designer.cs">
       <DependentUpon>FRM_MAIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FRM_MESAS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FRM_MESAS.Designer.cs">
+      <DependentUpon>FRM_MESAS.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Principal.cs">
       <SubType>Form</SubType>
@@ -64,6 +69,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presentacion\FRM_MAIN.resx">
       <DependentUpon>FRM_MAIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FRM_MESAS.resx">
+      <DependentUpon>FRM_MESAS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
