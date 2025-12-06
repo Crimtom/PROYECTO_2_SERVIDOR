@@ -58,6 +58,7 @@
             // 
             this.TXT_CEDULA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TXT_CEDULA.Location = new System.Drawing.Point(315, 69);
+            this.TXT_CEDULA.MaxLength = 9;
             this.TXT_CEDULA.Name = "TXT_CEDULA";
             this.TXT_CEDULA.Size = new System.Drawing.Size(432, 31);
             this.TXT_CEDULA.TabIndex = 1;
