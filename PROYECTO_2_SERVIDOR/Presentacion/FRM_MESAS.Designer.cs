@@ -61,6 +61,7 @@
             this.TXT_CEDULA.Name = "TXT_CEDULA";
             this.TXT_CEDULA.Size = new System.Drawing.Size(432, 31);
             this.TXT_CEDULA.TabIndex = 1;
+            this.TXT_CEDULA.TextChanged += new System.EventHandler(this.TXT_CEDULA_TextChanged);
             // 
             // TXT_NOMBRE
             // 
@@ -69,6 +70,7 @@
             this.TXT_NOMBRE.Name = "TXT_NOMBRE";
             this.TXT_NOMBRE.Size = new System.Drawing.Size(432, 31);
             this.TXT_NOMBRE.TabIndex = 3;
+            this.TXT_NOMBRE.TextChanged += new System.EventHandler(this.TXT_NOMBRE_TextChanged);
             // 
             // label2002
             // 

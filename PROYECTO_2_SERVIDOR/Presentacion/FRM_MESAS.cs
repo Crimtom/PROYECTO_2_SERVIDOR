@@ -27,7 +27,7 @@ namespace PROYECTO_2_SERVIDOR.Presentacion
             //  Limpia los espacios de texto
             try
             {
-                if (TXT_CEDULA.Text != "" && TXT_NOMBRE.Text != "" && TXT_NUM_MESA.Text != "" && TXT_CENT_VOTA.Text != "")
+                if (TXT_CEDULA.Text != "" || TXT_NOMBRE.Text != "" || TXT_NUM_MESA.Text != "" || TXT_CENT_VOTA.Text != "")
                 {
                     TXT_CEDULA.Text = "";
                     TXT_NOMBRE.Text = "";
@@ -43,6 +43,49 @@ namespace PROYECTO_2_SERVIDOR.Presentacion
             catch (Exception ex)
             {
                 MessageBox.Show("Se produjo un error al intentar limpiar los campos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void TXT_CEDULA_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                // Valida que solo se ingresen números en el campo Cédula
+                bool cedula_texto;
+                if (!string.IsNullOrEmpty(TXT_CEDULA.Text))
+                {
+                    cedula_texto = TXT_CEDULA.Text.All(char.IsDigit);
+                    if (!cedula_texto)
+                    {
+                        MessageBox.Show("Por favor, ingrese solo números en el campo Cédula.", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        TXT_CEDULA.Text = string.Empty;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se produjo un error al intentar procesar el cambio en el campo Cédula: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void TXT_NOMBRE_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                bool nombre_texto;
+                if (!string.IsNullOrEmpty(TXT_NOMBRE.Text))
+                {
+                    nombre_texto = TXT_NOMBRE.Text.All(c => char.IsLetter(c) || char.IsWhiteSpace(c));
+                    if (!nombre_texto)
+                    {
+                        MessageBox.Show("Por favor, ingrese solo letras y espacios en el campo Nombre.", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        TXT_NOMBRE.Text = string.Empty;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se produjo un error al intentar procesar el cambio en el campo Nombre: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
