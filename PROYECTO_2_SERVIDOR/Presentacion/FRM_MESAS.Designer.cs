@@ -34,9 +34,9 @@
             this.label2002 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CB_ESTADO = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TXT_NUM_MESA = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TXT_CENT_VOTA = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.BT_GRABAR = new System.Windows.Forms.Button();
             this.BT_ELIMINAR = new System.Windows.Forms.Button();
@@ -99,13 +99,13 @@
             this.CB_ESTADO.Size = new System.Drawing.Size(133, 33);
             this.CB_ESTADO.TabIndex = 5;
             // 
-            // textBox1
+            // TXT_NUM_MESA
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(315, 251);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(432, 31);
-            this.textBox1.TabIndex = 7;
+            this.TXT_NUM_MESA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TXT_NUM_MESA.Location = new System.Drawing.Point(315, 251);
+            this.TXT_NUM_MESA.Name = "TXT_NUM_MESA";
+            this.TXT_NUM_MESA.Size = new System.Drawing.Size(432, 31);
+            this.TXT_NUM_MESA.TabIndex = 7;
             // 
             // label3
             // 
@@ -117,13 +117,13 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Número de Mesa:";
             // 
-            // textBox2
+            // TXT_CENT_VOTA
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(315, 315);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(432, 31);
-            this.textBox2.TabIndex = 9;
+            this.TXT_CENT_VOTA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TXT_CENT_VOTA.Location = new System.Drawing.Point(315, 315);
+            this.TXT_CENT_VOTA.Name = "TXT_CENT_VOTA";
+            this.TXT_CENT_VOTA.Size = new System.Drawing.Size(432, 31);
+            this.TXT_CENT_VOTA.TabIndex = 9;
             // 
             // label4
             // 
@@ -167,6 +167,7 @@
             this.BT_LIMPIAR.TabIndex = 12;
             this.BT_LIMPIAR.Text = "Limpiar";
             this.BT_LIMPIAR.UseVisualStyleBackColor = true;
+            this.BT_LIMPIAR.Click += new System.EventHandler(this.BT_LIMPIAR_Click);
             // 
             // BT_SALIR
             // 
@@ -178,6 +179,7 @@
             this.BT_SALIR.TabIndex = 13;
             this.BT_SALIR.Text = "Salir";
             this.BT_SALIR.UseVisualStyleBackColor = true;
+            this.BT_SALIR.Click += new System.EventHandler(this.BT_SALIR_Click);
             // 
             // FRM_MESAS
             // 
@@ -188,9 +190,9 @@
             this.Controls.Add(this.BT_LIMPIAR);
             this.Controls.Add(this.BT_ELIMINAR);
             this.Controls.Add(this.BT_GRABAR);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.TXT_CENT_VOTA);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TXT_NUM_MESA);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.CB_ESTADO);
             this.Controls.Add(this.label2);
@@ -214,9 +216,9 @@
         private System.Windows.Forms.Label label2002;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox CB_ESTADO;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TXT_NUM_MESA;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TXT_CENT_VOTA;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BT_GRABAR;
         private System.Windows.Forms.Button BT_ELIMINAR;

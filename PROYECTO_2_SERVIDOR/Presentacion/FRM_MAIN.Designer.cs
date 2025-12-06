@@ -78,6 +78,7 @@
             this.Name = "FRM_MAIN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menú Principal";
+            this.Load += new System.EventHandler(this.FRM_MAIN_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

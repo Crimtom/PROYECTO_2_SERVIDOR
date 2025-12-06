@@ -23,11 +23,18 @@ namespace PROYECTO_2_SERVIDOR.Presentacion
             try
             {
                 Principal socket = new Principal();
-                socket.Show();
-                // Verifica si el formulario socket está abierto para poder cerrar el menú principal
-                if (Application.OpenForms.OfType<Principal>().Any())
+                // Verifica si el formulario socket no está abierto para poder abrirlo
+                if (Application.OpenForms.OfType<FRM_MESAS>().Any())
                 {
-                    this.Hide();
+                    MessageBox.Show("El menú de Socket de Comunicación no puede abrirse mientras el menú de Mantenimiento de Mesas de Votación está abierto.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (!Application.OpenForms.OfType<Principal>().Any())
+                {
+                    socket.Show();
+                }
+                else
+                {
+                    MessageBox.Show("El menú de Socket de Comunicación ya se encuentra abierto.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -41,16 +48,28 @@ namespace PROYECTO_2_SERVIDOR.Presentacion
             try
             {
                 FRM_MESAS mesas = new FRM_MESAS();
-                mesas.Show();
-                if (Application.OpenForms.OfType<FRM_MESAS>().Any())
+                if (Application.OpenForms.OfType<Principal>().Any())
                 {
-                    this.Hide();
+                    MessageBox.Show("El menú de Mantenimiento de Mesas de Votación no puede abrirse mientras el menú de Socket de Comunicación está abierto.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (!Application.OpenForms.OfType<FRM_MESAS>().Any())
+                {
+                    mesas.Show();
+                }
+                else
+                {
+                    MessageBox.Show("El menú de Mantenimiento de Mesas de Votación ya se encuentra abierto.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Se produjo un error tras intentar abrir el menú de Mantenimiento de Mesas de Votación: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void FRM_MAIN_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
