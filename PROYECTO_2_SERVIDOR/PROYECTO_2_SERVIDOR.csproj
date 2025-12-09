@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>PROYECTO_2_SERVIDOR</RootNamespace>
     <AssemblyName>PROYECTO_2_SERVIDOR</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logica\Cla_Padron.cs" />
     <Compile Include="Logica\Cla_Servidor.cs" />
     <Compile Include="Presentacion\FRM_MAIN.cs">
       <SubType>Form</SubType>

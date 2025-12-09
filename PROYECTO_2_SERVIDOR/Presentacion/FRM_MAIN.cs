@@ -13,6 +13,7 @@ namespace PROYECTO_2_SERVIDOR.Presentacion
 {
     public partial class FRM_MAIN : Form
     {
+
         public FRM_MAIN()
         {
             InitializeComponent();
@@ -69,6 +70,7 @@ namespace PROYECTO_2_SERVIDOR.Presentacion
 
         private void FRM_MAIN_Load(object sender, EventArgs e)
         {
+
 
         }
     }

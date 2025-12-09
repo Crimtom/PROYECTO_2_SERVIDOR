@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PROYECTO_2_SERVIDOR.Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace PROYECTO_2_SERVIDOR.Presentacion
         {
             InitializeComponent();
         }
+        Cla_Padron Padron = new Cla_Padron();
 
         private void BT_SALIR_Click(object sender, EventArgs e)
         {
@@ -87,6 +89,89 @@ namespace PROYECTO_2_SERVIDOR.Presentacion
             {
                 MessageBox.Show("Se produjo un error al intentar procesar el cambio en el campo Nombre: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void FRM_MESAS_Load(object sender, EventArgs e)
+        {
+            CB_ESTADO.Items.Add("Activo");
+            
+            CB_ESTADO.SelectedIndex = 0;
+        }
+
+        private void BT_GRABAR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (TXT_CEDULA.Text == "" || TXT_NOMBRE.Text == "" ||
+                    TXT_NUM_MESA.Text == "" || TXT_CENT_VOTA.Text == "")
+                {
+                    MessageBox.Show("Debe completar todos los campos.", "Advertencia",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                bool fallecido = (CB_ESTADO.SelectedItem.ToString() == "Inactivo");
+
+
+                bool resultado = Padron.Grabar(
+                    TXT_CEDULA.Text.Trim(),
+                    TXT_NOMBRE.Text.Trim(),
+                    TXT_NUM_MESA.Text.Trim(),
+                    TXT_CENT_VOTA.Text.Trim(),
+                    false
+                );
+
+                if (resultado)
+                {
+                    MessageBox.Show("Datos almacenados correctamente.", "Éxito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo almacenar la información.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al intentar grabar: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BT_ELIMINAR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (TXT_CEDULA.Text == "")
+                {
+                    MessageBox.Show("Debe ingresar la cédula que desea eliminar.", "Advertencia",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                bool eliminado = Padron.Eliminar(TXT_CEDULA.Text.Trim());
+
+                if (eliminado)
+                {
+                    MessageBox.Show("La persona ha sido marcada como fallecida.", "Información",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("La cédula ingresada no existe en el padrón.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al intentar eliminar: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CB_ESTADO_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

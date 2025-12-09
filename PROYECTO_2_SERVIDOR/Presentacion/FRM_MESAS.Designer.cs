@@ -101,6 +101,7 @@
             this.CB_ESTADO.Name = "CB_ESTADO";
             this.CB_ESTADO.Size = new System.Drawing.Size(133, 33);
             this.CB_ESTADO.TabIndex = 5;
+            this.CB_ESTADO.SelectedIndexChanged += new System.EventHandler(this.CB_ESTADO_SelectedIndexChanged);
             // 
             // TXT_NUM_MESA
             // 
@@ -148,6 +149,7 @@
             this.BT_GRABAR.TabIndex = 10;
             this.BT_GRABAR.Text = "Grabar";
             this.BT_GRABAR.UseVisualStyleBackColor = true;
+            this.BT_GRABAR.Click += new System.EventHandler(this.BT_GRABAR_Click);
             // 
             // BT_ELIMINAR
             // 
@@ -159,6 +161,7 @@
             this.BT_ELIMINAR.TabIndex = 11;
             this.BT_ELIMINAR.Text = "Eliminar";
             this.BT_ELIMINAR.UseVisualStyleBackColor = true;
+            this.BT_ELIMINAR.Click += new System.EventHandler(this.BT_ELIMINAR_Click);
             // 
             // BT_LIMPIAR
             // 
@@ -206,6 +209,7 @@
             this.Name = "FRM_MESAS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento de Mesas de Votación";
+            this.Load += new System.EventHandler(this.FRM_MESAS_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

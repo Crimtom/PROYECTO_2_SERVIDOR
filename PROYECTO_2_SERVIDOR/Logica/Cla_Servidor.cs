@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -8,6 +10,8 @@ namespace PROYECTO_2_SERVIDOR.Logica
 {
     public class Cla_Servidor
     {
+        private Cla_Padron Padron = new Cla_Padron();
+
         private TcpListener _servidor;
         private bool _activo;
         public int ClientesConectados { get; private set; }
@@ -81,8 +85,38 @@ namespace PROYECTO_2_SERVIDOR.Logica
                 string cedula = Encoding.ASCII.GetString(buffer, 0, leidos);
                 Log("Consulta recibida: " + cedula);
 
-                // Respuesta de prueba: código 4 (formato inválido) rellenado a 57 caracteres
-                string respuesta = "4".PadRight(57, ' ');
+                string respuesta;
+
+                // Validacion de formato
+                if (!cedula.All(char.IsDigit))
+                {
+                    // Codigo 4 = Formato inválido
+                    respuesta = "4".PadRight(57, ' ');
+                }
+                else
+                {
+                    var persona = Padron.Buscar(cedula);
+
+                    if (persona == null)
+                    {
+                        // Codigo 3 = Persona no registrada
+                        respuesta = "3".PadRight(57, ' ');
+                    }
+                    else if (persona.Fallecido)
+                    {
+                        // Codigo 2 = Persona fallecida
+                        respuesta = "2".PadRight(57, ' ');
+                    }
+                    else
+                    {
+                        // Codigo 1 = listo                       
+                        respuesta =
+                            "1" +
+                            persona.Nombre.PadRight(30, ' ') +
+                            persona.NumeroMesa.PadRight(6, ' ') +
+                            persona.CentroVotacion.PadRight(20, ' ');
+                    }
+                }
 
                 byte[] datos = Encoding.ASCII.GetBytes(respuesta);
                 stream.Write(datos, 0, datos.Length);
@@ -109,5 +143,9 @@ namespace PROYECTO_2_SERVIDOR.Logica
             if (OnLog != null)
                 OnLog(DateTime.Now.ToString("HH:mm:ss") + " - " + mensaje);
         }
+       
+
+
     }
+
 }
